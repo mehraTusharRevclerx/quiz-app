@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quiz app</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="container">
+    <header class="py-3 text-center">
+      <h1>Javascript Quiz</h1>
+    </header>
+    <main>
+      <section class="d-flex justify-content-center align-items-center">
+        <div class="card" style="width: 30rem"></div>
+        <!-- <div class="card" style="width: 30rem">
+          <div class="card-body">
+            <h5 class="card-title">Javascript Quiz</h5>
+            <h4 class="card-title">Javascript is an _______ language?</h4>
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-block w-100 my-2"
+            >
+              object oriented
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-info btn-block w-100 my-2"
+            >
+              object Based
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-block w-100 my-2"
+            >
+              procedural
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-block w-100 my-2"
+            >
+              None of the above
+            </button>
+            <p class="card-text">1 of 5 questions</p>
+          </div>
+        </div> -->
+      </section>
+    </main>
+    <footer class=""></footer>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 1,
+          },
+          1000: {
+            items: 1,
+          },
+        },
+      });
+
+      document.querySelector(".owl-dots").style.display = "none";
+      const nav = document.querySelector(".owl-nav");
+      nav.style.marginLeft = "1rem";
+      nav.style.marginRight = "1rem";
+      nav.style.position = "relative";
+      const prev = document.querySelector(".owl-nav .owl-prev");
+      const next = document.querySelector(".owl-nav .owl-next");
+      prev.style.fontSize = "3rem";
+      next.style.fontSize = "3rem";
+      next.style.position = "absolute";
+      next.style.right = "0";
+    });
+  </script>
+  <script src="/js/script.js"></script>
+</html>
