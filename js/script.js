@@ -35,7 +35,6 @@ const quesRes = [
 ];
 // "const",
 let i = 0;
-const quizHeading = "Javascript Quiz";
 
 const owlCarousel = document.createElement("div");
 owlCarousel.classList.add("owl-carousel");
@@ -62,14 +61,13 @@ while (quesArr.length > i) {
         <p class="card-text">${i + 1} of ${quesArr.length} questions</p>
         </div>
 
-          
         `;
   const owl = document.querySelector(".owl-carousel");
   owl.insertAdjacentHTML("beforeend", owlHtml);
 
-  if (!document.querySelector(".item").classList.contains("active")) {
-    document.querySelector(".item").classList.add("active");
-  }
+  //   if (!document.querySelector(".item").classList.contains("active")) {
+  //     document.querySelector(".item").classList.add("active");
+  //   }
   //   document.querySelector(".owl-nav").classList.remove("disabled");
   //   document.querySelector(".owl-dots").classList.remove("disabled");
   i++;
@@ -80,7 +78,8 @@ const allBtn = document.querySelectorAll(".btn");
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     userRes.push(btn.value);
-    btn.classList.toggle("btn-success", "text-white");
+    btn.classList.toggle("btn-success");
+    btn.classList.toggle("text-white");
     console.log(userRes);
   });
 });
@@ -95,5 +94,61 @@ submitBtn.addEventListener("click", () => {
     }
   });
 
-  alert(`out of ${quesArr.length} correct ans are ${finalAns.length}`);
+  const resultHtml = `
+    <div class="item">
+        <div class="card-body text-center">
+            <h5 class="card-title">you have answer ${quesArr.length}/${finalAns.length} questions correctly</h5>
+            <button class="btn btn-primary reset">reset</button>
+        </div>
+    </div>
+  `;
+  document.querySelector(".owl-stage").innerHTML = "";
+  const owl = document.querySelector(".owl-carousel");
+  owl.insertAdjacentHTML("afterbegin", resultHtml);
+  document.querySelector(".owl-nav").style.display = "none";
+
+  submitBtn.style.display = "none";
+
+  document.querySelector(".reset").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.reload();
+    // alert(`out of ${quesArr.length} correct ans are ${finalAns.length}`);
+  });
+});
+
+$(document).ready(function () {
+  $(".owl-carousel").owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 1,
+      },
+      1000: {
+        items: 1,
+      },
+    },
+  });
+
+  document.querySelector(".owl-dots").style.display = "none";
+  const nav = document.querySelector(".owl-nav");
+  const owlOuter = document.querySelector(".owl-stage-outer");
+  //   nav.style.marginLeft = "1rem";
+  //   nav.style.marginRight = "1rem";
+  nav.style.margin = "1rem";
+  //   nav.style.position = "absolute";
+  owlOuter.style.position = "relative";
+  const prev = document.querySelector(".owl-nav .owl-prev");
+  const next = document.querySelector(".owl-nav .owl-next");
+  prev.innerHTML = `<button type="button" class="btn btn-primary mr-2 ">prev</button>`;
+  next.innerHTML = `<button type="button" class="btn btn-primary mx-3 ">next</button>`;
+  //   prev.style.fontSize = "3rem";
+  //   next.style.fontSize = "3rem";
+  //   prev.style.position = "absolute";
+  next.style.position = "absolute";
+  next.style.right = "0";
 });
